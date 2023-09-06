@@ -98,7 +98,7 @@ public class Main {
                             }
                             }
                         Matricula matricula = new Matricula(id, "Activa", estudiante.getCarrera().getSede(), materiasestudiante, new Date());
-                        matriculaDB.matricularEstudiante(matricula, id);
+                        matriculaDB.matricularEstudiante(matricula, id, materiasestudiante);
                         estudiante.setMatricula(matricula);
                         System.out.println("El estudiante se matriculó correctamente");
                         System.out.println(matricula);

@@ -1,5 +1,6 @@
 package dbConnection;
 
+import clases.Asignatura;
 import clases.Carrera;
 import clases.Estudiante;
 import clases.Matricula;
@@ -8,10 +9,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class MatriculaDB {
-    public boolean matricularEstudiante(Matricula matricula,int id) {
+    public boolean matricularEstudiante(Matricula matricula, int id, ArrayList<Asignatura> asignaturas) {
         Connection connection = ConnectionMySQL.getConnection();
         try {
 
@@ -29,6 +31,9 @@ public class MatriculaDB {
             int rowsAffected = preparedStatement.executeUpdate();
 
             if(!actualizarMatricula(id)){
+                return false;
+            }
+            if(!matriculaxasignaturas(asignaturas,id)){
                 return false;
             }
 
@@ -78,6 +83,36 @@ public class MatriculaDB {
 
         return false; // Fallo en la actualización
 
+    }
+
+    public boolean matriculaxasignaturas(ArrayList<Asignatura> asignaturas,int idMatricula){
+        Connection connection = ConnectionMySQL.getConnection();
+        try {
+            int rowsAffected = 0;
+            for (int i = 0; i < asignaturas.size(); i++) {
+
+                // Query SQL para insertar un estudiante en la base de datos
+                String query = "INSERT INTO matriculaxasignatura (idmatricula,idasignatura) " +
+                        " VALUES (?, ?)";
+
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1, idMatricula);
+                preparedStatement.setInt(2, asignaturas.get(i).getIdAsignatura());
+
+                rowsAffected = preparedStatement.executeUpdate();
+
+            }
+            if(rowsAffected > 0){
+                return true;
+            }
+
+    }catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        ConnectionMySQL.closeConnection(connection);
+    }
+
+        return false; // Fallo en la inserción
     }
 
 

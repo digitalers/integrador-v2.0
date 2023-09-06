@@ -107,7 +107,7 @@ CREATE TABLE `estudiante` (
 
 LOCK TABLES `estudiante` WRITE;
 /*!40000 ALTER TABLE `estudiante` DISABLE KEYS */;
-INSERT INTO `estudiante` VALUES (1,'nico','enrico',123,'casanueva','123',1,'utn',NULL,'10',1),(2,'lucas','suarez',234,'casa2','1234',2,'unc',NULL,'5',2),(4,'Juan','Perez',12345678,'Av. Siempre Viva 123','123456789',1,'UTN','3919-04-01','0.0',4),(5,'Juan','Perez',12345678,'Av. Siempre Viva 123','123456789',2,'UNC','1969-12-31','0.0',0),(7,'Juan','Perez',12345678,'Av. Siempre Viva 123','123456789',1,'UTN','2023-09-06','0.0',0),(8,'juan','pruebas',234,'casa','1234',1,'utn','2023-09-06','0.0',0);
+INSERT INTO `estudiante` VALUES (1,'nico','enrico',123,'casanueva','123',1,'utn',NULL,'10',1),(2,'lucas','suarez',234,'casa2','1234',2,'unc',NULL,'5',2),(4,'Juan','Perez',12345678,'Av. Siempre Viva 123','123456789',1,'UTN','3919-04-01','0.0',0),(5,'Juan','Perez',12345678,'Av. Siempre Viva 123','123456789',2,'UNC','1969-12-31','0.0',0),(7,'Juan','Perez',12345678,'Av. Siempre Viva 123','123456789',1,'UTN','2023-09-06','0.0',0),(8,'juan','pruebas',234,'casa','1234',1,'utn','2023-09-06','0.0',0);
 /*!40000 ALTER TABLE `estudiante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,7 +133,7 @@ CREATE TABLE `matricula` (
 
 LOCK TABLES `matricula` WRITE;
 /*!40000 ALTER TABLE `matricula` DISABLE KEYS */;
-INSERT INTO `matricula` VALUES (0,'no matriculado',NULL,NULL),(1,'Activa','UTN','2023-09-06'),(2,'Activa','UNC','2023-09-06'),(4,'Activa','UTN','2023-09-06');
+INSERT INTO `matricula` VALUES (0,'no matriculado',NULL,NULL),(1,'Activa','UTN','2023-09-06'),(2,'Activa','UNC','2023-09-06');
 /*!40000 ALTER TABLE `matricula` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +149,7 @@ CREATE TABLE `matriculaxasignatura` (
   `idasignatura` int(11) NOT NULL,
   PRIMARY KEY (`idmatricula`,`idasignatura`),
   KEY `idasignatura_idx` (`idasignatura`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,6 +158,7 @@ CREATE TABLE `matriculaxasignatura` (
 
 LOCK TABLES `matriculaxasignatura` WRITE;
 /*!40000 ALTER TABLE `matriculaxasignatura` DISABLE KEYS */;
+INSERT INTO `matriculaxasignatura` VALUES (1,1),(1,2),(2,3),(2,4),(2,6);
 /*!40000 ALTER TABLE `matriculaxasignatura` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,4 +226,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-06 19:16:16
+-- Dump completed on 2023-09-06 20:06:59
