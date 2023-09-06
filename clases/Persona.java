@@ -20,6 +20,10 @@ public Persona(){
         this.telefono = telefono;
     }
 
+    public Persona(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getNombre() {
         return nombre;
     }

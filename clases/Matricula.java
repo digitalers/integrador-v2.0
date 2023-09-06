@@ -20,6 +20,11 @@ public class Matricula {
         this.fechaMatriculacion = fechaMatriculacion;
     }
 
+    public Matricula(int idMatricula, String estado) {
+        this.idMatricula = idMatricula;
+        this.estado = estado;
+    }
+
     public int getIdMatricula() {
         return idMatricula;
     }
@@ -58,5 +63,15 @@ public class Matricula {
 
     public void setFechaMatriculacion(Date fechaMatriculacion) {
         this.fechaMatriculacion = fechaMatriculacion;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + idMatricula +
+                ", Estado='" + estado + '\'' +
+                ", nombreInstituto='" + nombreInstituto + '\'' +
+                ", asignaturaIns=" + asignaturaIns +
+                ", fechaMatriculacion=" + fechaMatriculacion.getTime() +
+                '}';
     }
 }

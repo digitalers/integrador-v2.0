@@ -23,6 +23,11 @@ public class Asignatura {
         this.tipo = tipo;
     }
 
+    public Asignatura(int idAsignatura, String nombre) {
+        this.idAsignatura = idAsignatura;
+        this.nombre = nombre;
+    }
+
     public int getIdAsignatura() {
         return idAsignatura;
     }
@@ -77,5 +82,11 @@ public class Asignatura {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "nombre='" + nombre + '\'' +
+                '}';
     }
 }

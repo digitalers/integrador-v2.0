@@ -20,6 +20,12 @@ public class Carrera {
         this.sede = sede;
     }
 
+    public Carrera(int idCarrera, String nombreCarrera, String sede) {
+        this.idCarrera = idCarrera;
+        this.nombre = nombreCarrera;
+        this.sede = sede;
+    }
+
     public int getIdCarrera() {
         return idCarrera;
     }
