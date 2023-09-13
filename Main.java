@@ -64,8 +64,14 @@ public class Main {
                 }
                 Matricula matricula = new Matricula(0,"no matriculado");
                 Estudiante estudiante = new Estudiante(nombre,apellido,dni,direccion,telefono,ultimoEstudiante,carreraestudiante,carreraestudiante.getSede(),new Date(),0,matricula);
-                estudianteDB.registrarEstudiante(estudiante);
-                estudiantes.add(estudiante);
+                if(estudianteDB.registrarEstudiante(estudiante)){
+                    System.out.println("El estudiante se registró correctamente");
+                    estudiantes.add(estudiante);
+                    System.out.println(estudiante);
+                }else {
+                    System.out.println("El estudiante no se pudo registrar");
+                }
+
 
 
                 System.out.println(estudiantes);
@@ -98,10 +104,14 @@ public class Main {
                             }
                             }
                         Matricula matricula = new Matricula(id, "Activa", estudiante.getCarrera().getSede(), materiasestudiante, new Date());
-                        matriculaDB.matricularEstudiante(matricula, id, materiasestudiante);
-                        estudiante.setMatricula(matricula);
-                        System.out.println("El estudiante se matriculó correctamente");
-                        System.out.println(matricula);
+                        if(matriculaDB.matricularEstudiante(matricula, id, materiasestudiante)){
+                            estudiante.setMatricula(matricula);
+                            System.out.println("El estudiante se matriculó correctamente");
+                            System.out.println(matricula);
+                        }
+                        else {
+                            System.out.println("El estudiante no se pudo matricular");
+                        }
                         break;
                         }
 
@@ -112,6 +122,7 @@ public class Main {
 
 
             } else if (opcion == 3) {
+
                 System.out.println("SE MUESTRAN LO DATOS PRINCIPALES DE LOS ESTUDIANTES");
                 System.out.println("=".repeat(150));
                 System.out.println(estudiantes);
@@ -126,8 +137,14 @@ public class Main {
                     if (estudiante.getIdEstudiante() == (id)){
                         System.out.print("Ingrese la nueva direccion: ");
                         String direccion = scanner.next();
-                        estudianteDB.modificarEstudiante(id,direccion);
-                        System.out.println("Direccion modificada correctamente");
+                        estudiante.setDireccion(direccion);
+                        if (estudianteDB.modificarEstudiante(id,direccion)){
+                            System.out.println("Direccion modificada correctamente");
+                        }else{
+                            System.out.println("No se pudo modificar la direccion");
+                        }
+
+
                     }
                 }
 
@@ -138,11 +155,13 @@ public class Main {
                 int id =Integer.parseInt(scanner.next());
                 for (Estudiante estudiante:estudiantes) {
                     if (estudiante.getIdEstudiante() == (id)){
-                        estudianteDB.eliminarEstudiante(id);
-                        System.out.println("estudiante eliminado correctamente");
+                        if (estudianteDB.eliminarEstudiante(id)){
+                            System.out.println("estudiante eliminado correctamente");
+                        }
+
                     }
                 }
-                System.out.println(estudiantes);
+
             }
 
 
