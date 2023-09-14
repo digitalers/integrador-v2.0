@@ -64,7 +64,7 @@ public class CuentasDTO<T> extends Conexion implements CuentasRepositorio<T> {
     }
 
     @Override
-    public void eliminarCuenta(int id) throws SQLException {
+    public void eliminarCuenta(int id) throws Excepciones {
         try {
             String sql = "DELETE FROM cuentas WHERE cliente_id = ?";
 
@@ -82,7 +82,7 @@ public class CuentasDTO<T> extends Conexion implements CuentasRepositorio<T> {
     }
 
     @Override
-    public void aumentarDinero(int id, int monto) throws SQLException {
+    public void aumentarDinero(int id, int monto) throws Excepciones {
         try {
             String sql = "UPDATE cuentas SET saldo = saldo + ? WHERE id = ?";
 
@@ -99,7 +99,7 @@ public class CuentasDTO<T> extends Conexion implements CuentasRepositorio<T> {
     }
 
     @Override
-    public void retirarDinero(int id, int monto) throws SQLException {
+    public void retirarDinero(int id, int monto) throws Excepciones {
         try {
             String sql = "UPDATE cuentas SET saldo = saldo - ? WHERE id = ?";
 
@@ -147,7 +147,7 @@ public class CuentasDTO<T> extends Conexion implements CuentasRepositorio<T> {
     }
 
     @Override
-    public void crearTransaccion(int cuentaOrigen, int cuentaDestino, String tipo, int saldo, int monto) throws SQLException {
+    public void crearTransaccion(int cuentaOrigen, int cuentaDestino, String tipo, int saldo, int monto) throws Excepciones {
         try {
             String sql = "INSERT INTO transacciones (fecha, hora, id_cliente, id_cuenta, tipo, monto) VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -177,7 +177,7 @@ public class CuentasDTO<T> extends Conexion implements CuentasRepositorio<T> {
     }
 
     @Override
-    public ResultSet obtenerTodasLasTransacciones() throws SQLException {
+    public ResultSet obtenerTodasLasTransacciones() throws Excepciones {
         try {
             String sql = "SELECT * FROM transacciones";
 
