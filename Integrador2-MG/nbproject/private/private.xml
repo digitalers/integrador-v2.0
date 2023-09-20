@@ -2,12 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/netXMM/Documents/NetBeansProjects/Integrador2-MG/src/integrador2/mg/gestor/Gestor.java</file>
-            <file>file:/C:/Users/netXMM/Documents/NetBeansProjects/Integrador2-MG/src/integrador2/mg/models/CuentaAhorro.java</file>
-            <file>file:/C:/Users/netXMM/Documents/NetBeansProjects/Integrador2-MG/src/dao/ClienteDao.java</file>
-            <file>file:/C:/Users/netXMM/Documents/NetBeansProjects/Integrador2-MG/src/controller/ClienteController.java</file>
-            <file>file:/C:/Users/netXMM/Documents/NetBeansProjects/Integrador2-MG/src/dao/CuentaDao.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
